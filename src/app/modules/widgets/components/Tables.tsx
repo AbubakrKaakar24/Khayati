@@ -8,7 +8,6 @@ import {
   TablesWidget6,
   TablesWidget7,
   TablesWidget8,
-  TablesWidget9,
   TablesWidget10,
   TablesWidget11,
   TablesWidget12,
@@ -82,7 +81,7 @@ const Tables: FC = () => {
       </div>
       {/* end::Row */}
 
-      <TablesWidget9 className='mb-5 mb-xl-8' />
+      {/* <TablesWidget9 className='mb-5 mb-xl-8' /> */}
 
       <TablesWidget10 className='mb-5 mb-xl-8' />
 

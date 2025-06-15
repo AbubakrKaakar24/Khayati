@@ -28,7 +28,7 @@ export function AsideMenuMain() {
         fontIcon='bi-gear'
       />
       <AsideMenuItem
-        to=''
+        to='/customer'
         icon='/media/icons/duotune/communication/com006.svg'
         title='Customer'
         fontIcon='bi-person'
