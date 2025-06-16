@@ -8,11 +8,13 @@ export function checkIsActive(pathname: string, url: string) {
     return false
   }
 
+  // Exact match
   if (current === url) {
     return true
   }
 
-  if (current.indexOf(url) > -1) {
+  // Match url only if current starts with url + '/'
+  if (current.startsWith(url + '/')) {
     return true
   }
 

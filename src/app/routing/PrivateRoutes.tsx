@@ -7,8 +7,6 @@ import {MenuTestPage} from '../pages/MenuTestPage'
 import {getCSSVariableValue} from '../../_metronic/assets/ts/_utils'
 import {WithChildren} from '../../_metronic/helpers'
 import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
-import TablesWidget9 from '../../_metronic/partials/widgets/tables/TablesWidget9'
-
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
   const WizardsPage = lazy(() => import('../modules/wizards/WizardsPage'))
@@ -16,8 +14,21 @@ const PrivateRoutes = () => {
   const WidgetsPage = lazy(() => import('../modules/widgets/WidgetsPage'))
   const ChatPage = lazy(() => import('../modules/apps/chat/ChatPage'))
   const UsersPage = lazy(() => import('../modules/apps/user-management/UsersPage'))
-  const CustomerPage = lazy(() => import('../../_metronic/partials/widgets/tables/TablesWidget9'))
+  const CustomerPage = lazy(() => import('../pages/customer/customerPage'))
+  const CreateCustomer = lazy(() => import('../pages/customer/createCustomerPage'))
 
+  const EmbellishMentTypePage = lazy(
+    () => import('../pages/embellishment_type/embellishmentTypePage')
+  )
+  const CreateEmbellishMentTypePage = lazy(
+    () => import('../pages/embellishment_type/createEmbellishmentTypePage')
+  )
+  const EmbellishMentPage = lazy(() => import('../pages/embellishment/embellishmentpage'))
+  const CreateEmbellishmentPage = lazy(
+    () => import('../pages/embellishment/createEmbellishmentPage')
+  )
+  const MeasurementPage = lazy(() => import('../pages/measurement/measurementPage'))
+  const CreateMeasurementPage = lazy(() => import('../pages/measurement/createMeasurementPage'))
   return (
     <Routes>
       <Route element={<MasterLayout />}>
@@ -27,7 +38,72 @@ const PrivateRoutes = () => {
         <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='builder' element={<BuilderPageWrapper />} />
         <Route path='menu-test' element={<MenuTestPage />} />
-        <Route path='customer' element={<CustomerPage className='mb-5 mb-xl-8' />} />
+        <Route
+          path='customer'
+          element={
+            <SuspensedView>
+              <CustomerPage className='mb-5 mb-xl-8' />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='measurement-create'
+          element={
+            <SuspensedView>
+              <CreateMeasurementPage />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='measurement'
+          element={
+            <SuspensedView>
+              <MeasurementPage className='mb-5 mb-xl-8' />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='customer-create'
+          element={
+            <SuspensedView>
+              <CreateCustomer />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='embellishmentType'
+          element={
+            <SuspensedView>
+              <EmbellishMentTypePage className='mb-5 mb-xl-8' />
+            </SuspensedView>
+          }
+        />
+
+        <Route
+          path='/embellishmentType-create'
+          element={
+            <SuspensedView>
+              <CreateEmbellishMentTypePage />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='embellishment'
+          element={
+            <SuspensedView>
+              <EmbellishMentPage className='mb-5 mb-xl-8' />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='embellishment-create'
+          element={
+            <SuspensedView>
+              <CreateEmbellishmentPage />
+            </SuspensedView>
+          }
+        />
+
         {/* Lazy Modules */}
         <Route
           path='crafted/pages/profile/*'
@@ -37,6 +113,7 @@ const PrivateRoutes = () => {
             </SuspensedView>
           }
         />
+        <Route path='embellishment' element={<EmbellishMentPage className='mb-5 mb-xl-8' />} />
         <Route
           path='crafted/pages/wizards/*'
           element={

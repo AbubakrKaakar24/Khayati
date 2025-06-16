@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import {KTSVG, toAbsoluteUrl} from '../../../helpers'
+// import {KTSVG, toAbsoluteUrl} from '../../../helpers'
+import {KTSVG, toAbsoluteUrl} from '../../../_metronic/helpers'
 import {useState} from 'react'
+import {Link} from 'react-router-dom'
 
 type Props = {
   className: string
 }
 
-const TablesWidget9: React.FC<Props> = ({className}) => {
+const CustomerPage: React.FC<Props> = ({className}) => {
   const [customers, setCustomer] = useState([
     {
       Id: 1,
@@ -96,17 +98,22 @@ const TablesWidget9: React.FC<Props> = ({className}) => {
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
-      <div className='d-flex align-items-center' data-kt-search='true'>
-        <div className='position-relative' data-kt-search-element='form'>
+      <div className='card-title'>
+        {/* begin::Search */}
+        <div className='d-flex align-items-center position-relative my-1'>
+          <KTSVG
+            path='/media/icons/duotune/general/gen021.svg'
+            className='svg-icon-1 position-absolute ms-6'
+          />
           <input
             type='text'
-            className='form-control'
-            placeholder='🔍Search...'
-            data-kt-search-element='input'
+            data-kt-user-table-filter='search'
+            className='form-control form-control-solid w-250px ps-14'
+            placeholder='Search user'
             onChange={(e) => search(e.target.value)}
           />
-          <span className='spinner-border d-none' data-kt-search-element='spinner'></span>
         </div>
+        {/* end::Search */}
       </div>
 
       <div className='card-header border-0 pt-5'>
@@ -122,15 +129,15 @@ const TablesWidget9: React.FC<Props> = ({className}) => {
           data-bs-trigger='hover'
           title='Click to add a user'
         >
-          <a
-            href='#'
+          <Link
+            to='/customer-create'
             className='btn btn-sm btn-light-primary'
-            data-bs-toggle='modal'
-            data-bs-target='#kt_modal_invite_friends'
+            // data-bs-toggle='modal'
+            // data-bs-target='#kt_modal_invite_friends'
           >
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
             New Customer
-          </a>
+          </Link>
         </div>
       </div>
       {/* end::Header */}
@@ -231,4 +238,4 @@ const TablesWidget9: React.FC<Props> = ({className}) => {
   )
 }
 
-export default TablesWidget9
+export default CustomerPage

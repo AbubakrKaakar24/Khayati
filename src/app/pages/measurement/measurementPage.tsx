@@ -1,13 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import {KTSVG, toAbsoluteUrl} from '../../../helpers'
-import {useState} from 'react'
+import React, {useState} from 'react'
+import {KTSVG, toAbsoluteUrl} from '../../../_metronic/helpers'
+import {Link} from 'react-router-dom'
 
 type Props = {
   className: string
 }
 
-const TablesWidget9: React.FC<Props> = ({className}) => {
+const MeasurementPage: React.FC<Props> = ({className}) => {
+  // Original full data
+
   const [customers, setCustomer] = useState([
     {
       Id: 1,
@@ -96,23 +97,26 @@ const TablesWidget9: React.FC<Props> = ({className}) => {
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
-      <div className='d-flex align-items-center' data-kt-search='true'>
-        <div className='position-relative' data-kt-search-element='form'>
+      <div className='card-title'>
+        {/* begin::Search */}
+        <div className='d-flex align-items-center position-relative my-1'>
+          <KTSVG
+            path='/media/icons/duotune/general/gen021.svg'
+            className='svg-icon-1 position-absolute ms-6'
+          />
           <input
             type='text'
-            className='form-control'
-            placeholder='🔍Search...'
-            data-kt-search-element='input'
+            data-kt-user-table-filter='search'
+            className='form-control form-control-solid w-250px ps-14'
+            placeholder='Search user'
             onChange={(e) => search(e.target.value)}
           />
-          <span className='spinner-border d-none' data-kt-search-element='spinner'></span>
         </div>
+        {/* end::Search */}
       </div>
-
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
-          <span className='card-label fw-bold fs-3 mb-1'>Customers</span>
-          <span className='text-muted mt-1 fw-semibold fs-7'>Over 500 Customers</span>
+          <span className='card-label fw-bold fs-3 mb-1'>Measurement</span>
         </h3>
 
         <div
@@ -122,18 +126,19 @@ const TablesWidget9: React.FC<Props> = ({className}) => {
           data-bs-trigger='hover'
           title='Click to add a user'
         >
-          <a
-            href='#'
+          <Link
+            to='/measurement-create'
             className='btn btn-sm btn-light-primary'
-            data-bs-toggle='modal'
-            data-bs-target='#kt_modal_invite_friends'
+            // data-bs-toggle='modal'
+            // data-bs-target='#kt_modal_invite_friends'
           >
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
-            New Customer
-          </a>
+            New Measurement
+          </Link>
         </div>
       </div>
       {/* end::Header */}
+
       {/* begin::Body */}
       <div className='card-body py-3'>
         {/* begin::Table container */}
@@ -143,23 +148,17 @@ const TablesWidget9: React.FC<Props> = ({className}) => {
             {/* begin::Table head */}
             <thead>
               <tr className='fw-bold text-muted'>
-                <th className='w-25px'>
-                  <div className='form-check form-check-sm form-check-custom form-check-solid'>
-                    ID
-                  </div>
-                </th>
-                <th className='min-w-150px'>Name</th>
-                <th className='min-w-140px'>Date</th>
-                <th className='min-w-120px'>Phone</th>
-                <th className='min-w-120px'>Email</th>
+                <th className='w-25px'>ID</th>
+                <th className='min-w-150px pl-5'>Name</th>
                 <th className='min-w-100px text-end'>Actions</th>
               </tr>
             </thead>
             {/* end::Table head */}
+
             {/* begin::Table body */}
             <tbody>
               {customers.map((c, index) => (
-                <tr key={index}>
+                <tr key={c.Id}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
                       <span className='text-muted mt-1 fw-semibold fs-7'>{index + 1}</span>
@@ -181,54 +180,44 @@ const TablesWidget9: React.FC<Props> = ({className}) => {
                     </div>
                   </td>
                   <td>
-                    <span className='text-muted fw-semibold text-muted d-block fs-7'>{c.Date}</span>
-                  </td>
-                  <td className='text-end'>
-                    <div className='d-flex flex-column w-100 me-2'>
-                      <div className='d-flex flex-stack mb-2'>
-                        <span className='text-muted me-2 fs-7 fw-semibold'>{c.Phone}</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className='text-end'>
-                    <div className='d-flex flex-column w-100 me-2'>
-                      <div className='d-flex flex-stack mb-2'>
-                        <span className='text-muted me-2 fs-7 fw-semibold'>{c.Email}</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
                     <div className='d-flex justify-content-end flex-shrink-0'>
-                      <a
-                        href='#'
+                      <button
+                        type='button'
                         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
+                        aria-label='Edit'
+                        onClick={() => {
+                          // TODO: edit action
+                        }}
                       >
                         <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' />
-                      </a>
-                      <a
-                        href='#'
+                      </button>
+                      <button
+                        type='button'
                         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm'
+                        aria-label='Delete'
+                        onClick={() => {
+                          // TODO: delete action
+                        }}
                       >
                         <KTSVG
                           path='/media/icons/duotune/general/gen027.svg'
                           className='svg-icon-3'
                         />
-                      </a>
+                      </button>
                     </div>
                   </td>
                 </tr>
               ))}
             </tbody>
-
             {/* end::Table body */}
           </table>
           {/* end::Table */}
         </div>
         {/* end::Table container */}
       </div>
-      {/* begin::Body */}
+      {/* end::Body */}
     </div>
   )
 }
 
-export default TablesWidget9
+export default MeasurementPage
