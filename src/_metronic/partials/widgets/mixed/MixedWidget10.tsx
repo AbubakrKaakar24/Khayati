@@ -76,7 +76,7 @@ const chartOptions = (chartColor: string, chartHeight: string): ApexOptions => {
     series: [
       {
         name: 'Net Profit',
-        data: [15, 25, 15, 40, 20, 50],
+        data: [15, 55, 35, 40, 20, 50],
       },
     ],
     chart: {
