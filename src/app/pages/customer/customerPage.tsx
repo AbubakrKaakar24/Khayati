@@ -94,6 +94,13 @@ const CustomerPage: React.FC<Props> = ({className}) => {
       setCustomer(filteredcustomers)
     }
   }
+  const handleDelete = (Id: number) => {
+    alert('Measurement with id ' + Id + 'is deleted')
+  }
+  const handleEdit = (Id: number) => {
+    console.log('Edit clicked for id:', Id)
+    alert('Measurement with id ' + Id + 'is edited')
+  }
 
   return (
     <div className={`card ${className}`}>
@@ -181,9 +188,6 @@ const CustomerPage: React.FC<Props> = ({className}) => {
                         <a href='#' className='text-dark fw-bold text-hover-primary fs-6'>
                           {c.Name}
                         </a>
-                        <span className='text-muted fw-semibold text-muted d-block fs-7'>
-                          HTML, JS, ReactJS
-                        </span>
                       </div>
                     </div>
                   </td>
@@ -206,21 +210,29 @@ const CustomerPage: React.FC<Props> = ({className}) => {
                   </td>
                   <td>
                     <div className='d-flex justify-content-end flex-shrink-0'>
-                      <a
-                        href='#'
+                      <button
+                        type='button'
                         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
+                        aria-label='Edit'
+                        onClick={() => {
+                          handleEdit(index)
+                        }}
                       >
                         <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' />
-                      </a>
-                      <a
-                        href='#'
+                      </button>
+                      <button
+                        type='button'
                         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm'
+                        aria-label='Delete'
+                        onClick={() => {
+                          handleDelete(index)
+                        }}
                       >
                         <KTSVG
                           path='/media/icons/duotune/general/gen027.svg'
                           className='svg-icon-3'
                         />
-                      </a>
+                      </button>
                     </div>
                   </td>
                 </tr>

@@ -93,6 +93,13 @@ const MeasurementPage: React.FC<Props> = ({className}) => {
       setCustomer(filteredcustomers)
     }
   }
+  const handleDelete = (Id: number) => {
+    alert('Measurement with id ' + Id + 'is deleted')
+  }
+  const handleEdit = (Id: number) => {
+    console.log('Edit clicked for id:', Id)
+    alert('Measurement with id ' + Id + 'is edited')
+  }
 
   return (
     <div className={`card ${className}`}>
@@ -173,9 +180,6 @@ const MeasurementPage: React.FC<Props> = ({className}) => {
                         <a href='#' className='text-dark fw-bold text-hover-primary fs-6'>
                           {c.Name}
                         </a>
-                        <span className='text-muted fw-semibold text-muted d-block fs-7'>
-                          HTML, JS, ReactJS
-                        </span>
                       </div>
                     </div>
                   </td>
@@ -186,7 +190,7 @@ const MeasurementPage: React.FC<Props> = ({className}) => {
                         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
                         aria-label='Edit'
                         onClick={() => {
-                          // TODO: edit action
+                          handleEdit(index)
                         }}
                       >
                         <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' />
@@ -196,7 +200,7 @@ const MeasurementPage: React.FC<Props> = ({className}) => {
                         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm'
                         aria-label='Delete'
                         onClick={() => {
-                          // TODO: delete action
+                          handleDelete(index)
                         }}
                       >
                         <KTSVG

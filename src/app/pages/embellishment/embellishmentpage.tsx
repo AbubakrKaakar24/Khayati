@@ -37,7 +37,13 @@ const EmbellishmentPage: React.FC<Props> = ({className}) => {
       setEmbellishmentType(filtered)
     }
   }
-
+  const handleDelete = (Id: number) => {
+    alert('Measurement with id ' + Id + 'is deleted')
+  }
+  const handleEdit = (Id: number) => {
+    console.log('Edit clicked for id:', Id)
+    alert('Measurement with id ' + Id + 'is edited')
+  }
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
@@ -138,7 +144,7 @@ const EmbellishmentPage: React.FC<Props> = ({className}) => {
                         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
                         aria-label='Edit'
                         onClick={() => {
-                          // TODO: edit action
+                          handleEdit(index)
                         }}
                       >
                         <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' />
@@ -148,7 +154,7 @@ const EmbellishmentPage: React.FC<Props> = ({className}) => {
                         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm'
                         aria-label='Delete'
                         onClick={() => {
-                          // TODO: delete action
+                          handleDelete(index)
                         }}
                       >
                         <KTSVG
