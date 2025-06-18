@@ -7,16 +7,14 @@ import {MenuTestPage} from '../pages/MenuTestPage'
 import {getCSSVariableValue} from '../../_metronic/assets/ts/_utils'
 import {WithChildren} from '../../_metronic/helpers'
 import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
+import OrderPage from '../pages/order/orderPage'
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
-  const WizardsPage = lazy(() => import('../modules/wizards/WizardsPage'))
   const AccountPage = lazy(() => import('../modules/accounts/AccountPage'))
-  const WidgetsPage = lazy(() => import('../modules/widgets/WidgetsPage'))
   const ChatPage = lazy(() => import('../modules/apps/chat/ChatPage'))
   const UsersPage = lazy(() => import('../modules/apps/user-management/UsersPage'))
   const CustomerPage = lazy(() => import('../pages/customer/customerPage'))
   const CreateCustomer = lazy(() => import('../pages/customer/createCustomerPage'))
-
   const EmbellishMentTypePage = lazy(
     () => import('../pages/embellishment_type/embellishmentTypePage')
   )
@@ -29,6 +27,8 @@ const PrivateRoutes = () => {
   )
   const MeasurementPage = lazy(() => import('../pages/measurement/measurementPage'))
   const CreateMeasurementPage = lazy(() => import('../pages/measurement/createMeasurementPage'))
+  const OrderPage = lazy(() => import('../pages/order/orderPage'))
+  const CreateOrderPage = lazy(() => import('../pages/order/createOrderPage'))
   return (
     <Routes>
       <Route element={<MasterLayout />}>
@@ -38,6 +38,22 @@ const PrivateRoutes = () => {
         <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='builder' element={<BuilderPageWrapper />} />
         <Route path='menu-test' element={<MenuTestPage />} />
+        <Route
+          path='order'
+          element={
+            <SuspensedView>
+              <OrderPage className='mb-5 mb-xl-8' />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='order-create'
+          element={
+            <SuspensedView>
+              <CreateOrderPage />
+            </SuspensedView>
+          }
+        />
         <Route
           path='customer'
           element={
@@ -114,22 +130,6 @@ const PrivateRoutes = () => {
           }
         />
         <Route path='embellishment' element={<EmbellishMentPage className='mb-5 mb-xl-8' />} />
-        <Route
-          path='crafted/pages/wizards/*'
-          element={
-            <SuspensedView>
-              <WizardsPage />
-            </SuspensedView>
-          }
-        />
-        <Route
-          path='crafted/widgets/*'
-          element={
-            <SuspensedView>
-              <WidgetsPage />
-            </SuspensedView>
-          }
-        />
         <Route
           path='crafted/account/*'
           element={

@@ -97,7 +97,7 @@ const EmbellishmentPage: React.FC<Props> = ({className}) => {
           <table className='table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4'>
             {/* begin::Table head */}
             <thead>
-              <tr className='fw-bold text-muted'>
+              <tr className='fw-bold'>
                 <th className='w-25px'>ID</th>
                 <th className='min-w-150px'>Name</th>
                 <th className='min-w-140px'>Type Name</th>
@@ -111,29 +111,31 @@ const EmbellishmentPage: React.FC<Props> = ({className}) => {
             <tbody>
               {embellishmentType.map((c, index) => (
                 <tr key={c.Id}>
-                  <td>
-                    <div className='form-check form-check-sm form-check-custom form-check-solid'>
-                      <span className='text-muted mt-1 fw-semibold fs-7'>{index + 1}</span>
-                    </div>
-                  </td>
                   <td className='text-end'>
                     <div className='d-flex flex-column w-100 me-2'>
                       <div className='d-flex flex-stack mb-2'>
-                        <span className='text-muted me-2 fs-7 fw-semibold'>{c.Name}</span>
+                        <span className='me-2 fs-7 fw-semibold'>{c.Id}</span>
                       </div>
                     </div>
                   </td>
                   <td className='text-end'>
                     <div className='d-flex flex-column w-100 me-2'>
                       <div className='d-flex flex-stack mb-2'>
-                        <span className='text-muted me-2 fs-7 fw-semibold'>{c.TypeName}</span>
+                        <span className='me-2 fs-7 fw-semibold'>{c.Name}</span>
                       </div>
                     </div>
                   </td>
                   <td className='text-end'>
                     <div className='d-flex flex-column w-100 me-2'>
                       <div className='d-flex flex-stack mb-2'>
-                        <span className='text-muted me-2 fs-7 fw-semibold'>{c.Description}</span>
+                        <span className=' me-2 fs-7 fw-semibold'>{c.TypeName}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className='text-end'>
+                    <div className='d-flex flex-column w-100 me-2'>
+                      <div className='d-flex flex-stack mb-2'>
+                        <span className='me-2 fs-7 fw-semibold'>{c.Description}</span>
                       </div>
                     </div>
                   </td>

@@ -126,7 +126,7 @@ const CustomerPage: React.FC<Props> = ({className}) => {
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
           <span className='card-label fw-bold fs-3 mb-1'>Customers</span>
-          <span className='text-muted mt-1 fw-semibold fs-7'>Over 500 Customers</span>
+          <span className=' mt-1 fw-semibold fs-7'>Over 500 Customers</span>
         </h3>
 
         <div
@@ -156,7 +156,7 @@ const CustomerPage: React.FC<Props> = ({className}) => {
           <table className='table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4'>
             {/* begin::Table head */}
             <thead>
-              <tr className='fw-bold text-muted'>
+              <tr className='fw-bold'>
                 <th className='w-25px'>
                   <div className='form-check form-check-sm form-check-custom form-check-solid'>
                     ID
@@ -176,7 +176,7 @@ const CustomerPage: React.FC<Props> = ({className}) => {
                 <tr key={index}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
-                      <span className='text-muted mt-1 fw-semibold fs-7'>{index + 1}</span>
+                      <span className='mt-1 fw-semibold fs-7'>{index + 1}</span>
                     </div>
                   </td>
                   <td>
@@ -192,19 +192,19 @@ const CustomerPage: React.FC<Props> = ({className}) => {
                     </div>
                   </td>
                   <td>
-                    <span className='text-muted fw-semibold text-muted d-block fs-7'>{c.Date}</span>
+                    <span className='fw-semibold d-block fs-7'>{c.Date}</span>
                   </td>
                   <td className='text-end'>
                     <div className='d-flex flex-column w-100 me-2'>
                       <div className='d-flex flex-stack mb-2'>
-                        <span className='text-muted me-2 fs-7 fw-semibold'>{c.Phone}</span>
+                        <span className=' me-2 fs-7 fw-semibold'>{c.Phone}</span>
                       </div>
                     </div>
                   </td>
                   <td className='text-end'>
                     <div className='d-flex flex-column w-100 me-2'>
                       <div className='d-flex flex-stack mb-2'>
-                        <span className='text-muted me-2 fs-7 fw-semibold'>{c.Email}</span>
+                        <span className='me-2 fs-7 fw-semibold'>{c.Email}</span>
                       </div>
                     </div>
                   </td>

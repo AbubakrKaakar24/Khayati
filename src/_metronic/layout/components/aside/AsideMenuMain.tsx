@@ -22,9 +22,16 @@ export function AsideMenuMain() {
         </div>
       </div>
       <AsideMenuItem
+        to='/order'
+        icon='/media/icons/duotune/general/gen005.svg' // Order icon here
+        title='Orders'
+        fontIcon='bi-person' // You can also update or remove this if not used
+      />
+
+      <AsideMenuItem
         to='/customer'
         icon='/media/icons/duotune/communication/com006.svg'
-        title='Customer'
+        title='Customers'
         fontIcon='bi-person'
       />
       <AsideMenuItem
@@ -36,25 +43,25 @@ export function AsideMenuMain() {
       <AsideMenuItem
         to='/measurement'
         icon='/media/icons/duotune/general/gen028.svg'
-        title='Measurement'
+        title='Measurements'
         fontIcon='bi-rulers'
       />
       <AsideMenuItem
         to='/embellishment'
         icon='/media/icons/duotune/art/art001.svg'
-        title='Embellishment'
+        title='Embellishments'
         fontIcon='bi-patch-check'
       />
       <AsideMenuItem
         to=''
         icon='/media/icons/duotune/communication/com005.svg'
-        title='Relative'
+        title='Relatives'
         fontIcon='bi-people'
       />
       <AsideMenuItem
         to=''
         icon='/media/icons/duotune/communication/com011.svg'
-        title='Contact'
+        title='Contacts'
         fontIcon='bi-envelope'
       />
 

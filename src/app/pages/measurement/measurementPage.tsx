@@ -154,7 +154,7 @@ const MeasurementPage: React.FC<Props> = ({className}) => {
           <table className='table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4'>
             {/* begin::Table head */}
             <thead>
-              <tr className='fw-bold text-muted'>
+              <tr className='fw-bold'>
                 <th className='w-25px'>ID</th>
                 <th className='min-w-150px pl-5'>Name</th>
                 <th className='min-w-100px text-end'>Actions</th>
@@ -168,7 +168,7 @@ const MeasurementPage: React.FC<Props> = ({className}) => {
                 <tr key={c.Id}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
-                      <span className='text-muted mt-1 fw-semibold fs-7'>{index + 1}</span>
+                      <span className=' mt-1 fw-semibold fs-7'>{index + 1}</span>
                     </div>
                   </td>
                   <td>
